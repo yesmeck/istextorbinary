@@ -1,30 +1,6 @@
 sudo: false
 language: node_js
 node_js:
-- '0.8'
-- '0.10'
-- '0.12'
-- '4'
-- '6'
-- '8'
 - '10'
-matrix:
-  fast_finish: true
-  allow_failures:
-  - node_js: '0.8'
-  - node_js: '0.10'
-cache:
-  directories:
-  - "$HOME/.npm"
-  - "$HOME/.yarn-cache"
-install:
-- eval "$(curl -fsSL https://raw.githubusercontent.com/bevry/awesome-travis/a16fffacc146944edb58d02bbc565bf467099b18/scripts/node-install.bash)"
-before_script:
-- eval "$(curl -fsSL https://raw.githubusercontent.com/bevry/awesome-travis/a16fffacc146944edb58d02bbc565bf467099b18/scripts/node-verify.bash)"
-after_success:
-- eval "$(curl -fsSL https://raw.githubusercontent.com/bevry/awesome-travis/a16fffacc146944edb58d02bbc565bf467099b18/scripts/surge.bash)"
-- eval "$(curl -fsSL https://raw.githubusercontent.com/bevry/awesome-travis/a16fffacc146944edb58d02bbc565bf467099b18/scripts/node-publish.bash)"
-notifications:
-  email:
-    recipients:
-      secure: Q3bCQDLNuWzriLTAViaiPcyWfjC/UHZLsfpoD5x/eLIH5y8vqz3L8y7U8o43Ol5cgl+b5Ugug0OsjZ/NWCknlRnOdnA6j/ALiRdyAQAUqNdLYoyizHQlMv1w4g1gn4dvof7otnj4R8SkMzl9/EKXUED4ogbCGZF/K8DD57usg84=
+script:
+- npm test
