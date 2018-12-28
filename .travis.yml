@@ -2,5 +2,9 @@ sudo: false
 language: node_js
 node_js:
 - '10'
+before_script:
+  - npm install cnpm -g --registry=https://registry.npm.taobao.org
+  - rm -rf node_modules
+  - cnpm install
 script:
 - npm test
